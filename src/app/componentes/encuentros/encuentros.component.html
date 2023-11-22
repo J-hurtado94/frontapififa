@@ -1,0 +1,28 @@
+<mat-toolbar class="mat-primary mat-toolbar-single-row mat-elevatmat-z8 color-barra" color="background">
+  Encuentros
+</mat-toolbar>
+
+<div>
+  <mat-form-field appearance="fill">
+      <mat-label>Buscar Por Fecha de Encuentro</mat-label>
+      <input matInput [(ngModel)]="textoBusqueda" [matDatepicker]="picker" >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button mat-stroked-button color="primary" (click)="buscar()">Buscar</button>
+
+</div>
+
+<div>
+  <button mat-raised-button color="primary" (click)="agregar()">Agregar</button>
+  <button mat-raised-button color="accent" (click)="modificar()">Modificar</button>
+  <button mat-raised-button color="warn" (click)="verificarEliminar()">Eliminar</button>
+
+  <ngx-datatable class="dark" [headerHeight]="50" [footerHeight]="50" [rowHeight]="20" [rows]="encuentros"
+      [columns]="columnas" [columnMode]="modoColumna.force" [limit]="10" [selectionType]="tipoEncuentro.single"
+      (activate)="onActivate($event)" [rowHeight]="'auto'">
+
+
+
+  </ngx-datatable>
+</div>

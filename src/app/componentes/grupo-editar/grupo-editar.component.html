@@ -1,0 +1,43 @@
+<h1 mat-dialog-title class="dialog-title" >Editando campeonato</h1>
+<div mat-dialog-content>
+    <p>{{datos.encabezado}}</p>
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre Torneo</mat-label>
+        <!-- <input matInput [(ngModel)]="datos.campeonato.nombre"> -->
+        <mat-select [(value)]="datos.grupo.campeonato.id">
+          <mat-option *ngFor="let p of datos.campeonatos" [value]="p.id">
+              {{p.nombre}}
+          </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>País</mat-label>
+        <mat-select [(value)]="datos.grupo.campeonato.pais.id" >
+            <mat-option *ngFor="let p of datos.paises" [value]="p.id">
+                {{p.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field> -->
+    <!-- <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Año</mat-label>
+      <input type="number" matInput [(ngModel)]="datos.grupo.campeonato.ano">
+  </mat-form-field>
+   -->
+   <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Grupo</mat-label>
+    <input matInput [(ngModel)]="datos.grupo.nombre">
+</mat-form-field>
+<br>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close class="cancel-button">Cancelar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="datos" cdkFocusInitial class="accept-button">
+      Aceptar
+    </button>
+</div>
+
+
+

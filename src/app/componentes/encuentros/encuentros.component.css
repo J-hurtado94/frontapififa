@@ -1,0 +1,13 @@
+.dialog-title {
+  color: black;
+}
+
+.cancel-button {
+  background-color: red;
+  color: white;
+}
+
+.accept-button {
+  background-color: green;
+  color: white;
+}

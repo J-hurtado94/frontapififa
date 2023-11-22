@@ -1,0 +1,93 @@
+<h1 mat-dialog-title class="dialog-title" >Editando Encuentros</h1>
+<div mat-dialog-content>
+    <!-- <p>{{datos.encabezado}}</p>
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre Torneo</mat-label>
+        <input matInput [(ngModel)]="datos.encuentro.campeonato.nombre">
+    </mat-form-field> -->
+
+
+    <mat-form-field  appearance="fill">
+      <mat-label>Campeonato</mat-label>
+      <mat-select [(value)]="datos.encuentro.campeonato.id" name="campeonato" >
+       <mat-option *ngFor="let c of datos.campeonatos" [value]="c.id">
+         {{c.nombre}}
+       </mat-option>
+      </mat-select>
+     </mat-form-field>
+     <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Primer Equipo</mat-label>
+        <mat-select [(value)]="datos.encuentro.paisUno.id"  >
+            <mat-option *ngFor="let p of datos.paises" [value]="p.id">
+                {{p.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <!-- (selectionChange)="updateCampeonato($event)
+    (selectionChange)="updateCampeonato($event) -->
+    <mat-form-field appearance="fill">
+      <mat-label>Segundo Equipo</mat-label>
+      <mat-select [(value)]="datos.encuentro.paisDos.id" >
+          <mat-option *ngFor="let p of datos.paises" [value]="p.id">
+              {{p.nombre}}
+          </mat-option>
+      </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Fecha del partido</mat-label>
+    <input matInput [(ngModel)]="datos.encuentro.fecha" [matDatepicker]="picker" >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<div>
+<mat-form-field *ngIf="!datos.esModificacion" appearance="fill">
+  <mat-label>Estadio</mat-label>
+  <mat-select [(value)]="datos.encuentro.estadio.id" >
+   <mat-option *ngFor="let c of datos.estadios" [value]="c.id">
+     {{c.estadio}}
+   </mat-option>
+  </mat-select>
+ </mat-form-field>
+</div>
+
+<div>
+    <mat-form-field *ngIf="!datos.esModificacion" appearance="fill">
+      <mat-label>Año</mat-label>
+      <input type="number" matInput [(ngModel)]="datos.encuentro.campeonato.ano">
+  </mat-form-field>
+</div>
+
+<div>
+<mat-form-field *ngIf="!datos.esModificacion" appearance="fill">
+  <mat-label>Fase</mat-label>
+  <mat-select [(value)]="datos.encuentro.fase.id">
+      <mat-option *ngFor="let p of datos.fases" [value]="p.id">
+          {{p.fase}}
+      </mat-option>
+  </mat-select>
+</mat-form-field>
+</div>
+  <mat-form-field appearance="fill" >
+    <mat-label>Goles primer equipo</mat-label>
+    <input matInput [(ngModel)]="datos.encuentro.golesUno">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Goles Segundo equipo</mat-label>
+    <input matInput [(ngModel)]="datos.encuentro.golesDos">
+  </mat-form-field>
+</div>
+
+
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close class="cancel-button">Cancelar</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="datos" cdkFocusInitial class="accept-button">
+      Aceptar
+    </button>
+</div>
+
+
